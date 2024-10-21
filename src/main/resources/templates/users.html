@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+<h1>Users</h1>
+
+<div style="border: solid 1px black;
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content:
+                center; align-items: center;
+                margin-bottom: 5px"
+     th:each="users : ${users}">
+    <a th:text="${users.getName() + ' ' + users.getLastName()}"
+       th:href="@{/users/{id}(id=${users.getId()})}"></a>
+
+</div>
+
+
+<button style="cursor: pointer" onclick="document.location='/users/new'">Add user</button>
+
+</body>
+</html>
