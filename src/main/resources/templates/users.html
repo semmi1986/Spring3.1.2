@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
@@ -15,14 +15,25 @@
                 justify-content:
                 center; align-items: center;
                 margin-bottom: 5px"
-     th:each="users : ${users}">
-    <a th:text="${users.getName() + ' ' + users.getLastName()}"
-       th:href="@{/users/{id}(id=${users.getId()})}"></a>
+     th:each="user : ${users}">
+    <a th:text="${user.getUsername() + ' ' + user.getLastName()}"
+       th:href="@{/admin/user/{id}(id=${user.getId()})}"></a>
 
 </div>
 
 
-<button style="cursor: pointer" onclick="document.location='/users/new'">Add user</button>
+<a href="/admin/user/new" style="cursor: pointer">
+    <button type="button">Add user</button>
+</a>
+<br>
+<a href="/logout" style="cursor: pointer">
+    <button type="button">LogOut</button>
+</a>
+<br>
+<a href="/userInfo/profile" style="cursor: pointer">
+    <button type="button">Your Profile </button>
+</a>
 
 </body>
 </html>
+
